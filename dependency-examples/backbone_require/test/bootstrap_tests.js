@@ -18,19 +18,6 @@ window.log = function () {
     console.log(arguments);
 };
 
-// TODO simulate?
-//require([
-//    'views/app',
-//    'routers/router'
-//], function (AppView, Workspace) {
-//    new Workspace();
-//    Backbone.history.start();
-//
-//    // Initialize the application view
-//    new AppView();
-//});
-
-
 var conf = {
     urlArgs: 'v' + +(new Date()).getTime(),
 
@@ -131,10 +118,9 @@ require(['require', 'chai'], function (require, chai) {
         ignoreLeaks: true
     });
 
-    // Die Specs exportieren kein AMD-Modul und müssen nicht explizit
-    // initialisiert werden. Alle via describe() initialisierten Specs
-    // sind nun bei mocha registriert und werden via mocha.run() abgearbeitet.
     require([
+        'jquery',
+
         // Models & Collections
         'TodoSpec',
 
@@ -145,7 +131,10 @@ require(['require', 'chai'], function (require, chai) {
         'AppViewSpec',
         'TodoViewSpec'
 
-    ], function () {
+        // Die Specs exportieren kein AMD-Modul und müssen nicht explizit
+        // initialisiert werden. Alle via describe() initialisierten Specs
+        // sind nun bei mocha registriert und werden via mocha.run() abgearbeitet.
+    ], function ($) {
 
         // Zeige gesamte Anzahl an Assertions
         // Callback wird ausgeführt, sobald die Testsuite abgearbeitet wurde

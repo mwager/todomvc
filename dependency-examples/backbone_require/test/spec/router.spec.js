@@ -1,7 +1,5 @@
 /**
  * Tests für AppRouter und evtl. SubRouter
- *
- * @author Michael Wager <mail@mwager.de>
  */
 define('AppRouterSpec', [
     'backbone',

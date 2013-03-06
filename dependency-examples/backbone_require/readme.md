@@ -6,11 +6,12 @@ Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` mod
 
 ## TODOS
 
-* link im original artikel direkt hierher und auf meiner Seite bei der Vorstellung
-    des Artikels auch ein Link direkt hier her ("Democode zum Artikel") (-: !!!
+* mehr Tests
+* CasperJS-Tests
 * CodeReview
-* Tests anhand der TodoMVC AppSpec https://github.com/addyosmani/todomvc/wiki/App-Specification
-* hier ein Inhaltsverzeichnis!
+* Tests anhand der TodoMVC AppSpec? https://github.com/addyosmani/todomvc/wiki/App-Specification
+* hier ein Inhaltsverzeichnis
+
 
 ## Installation
 

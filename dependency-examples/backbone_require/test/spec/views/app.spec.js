@@ -24,5 +24,29 @@ define('AppViewSpec', [
             expect($(this.view.el).attr('id')).to.equal('todoapp');
         });
 
+//        it('should fetch some Todos on init', function () {
+//            var spy = sinon.spy();
+//
+//            Todos.on('reset', spy);
+//
+//            new AppView();
+//
+//            expect(spy.called).to.equal(true);
+//        });
+
+        it('should render on the "all" event of the Todos collection', function () {
+            sinon.stub(this.view, "render");
+            // sinon.spy(this.view, "render");
+
+            Todos.trigger('all');
+            // this.view.render()
+
+            log(this.view.render.calledOnce)
+            expect(this.view.render.calledOnce).to.equal(true);
+
+            var args = this.view.render.getCall(0).args;
+            log(args);
+        });
+
     });
 });

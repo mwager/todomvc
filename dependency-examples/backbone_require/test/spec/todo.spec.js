@@ -69,7 +69,6 @@ define('TodoSpec', function (require) {
                         // nur ein Beispiel, fixe Werte sollten möglichst gemieden werden!
                         expect(error).to.equal('title cannot be empty');
                         done();
-
                     });
 
                     // löse den fehler in validate() aus

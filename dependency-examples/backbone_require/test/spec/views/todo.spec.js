@@ -1,8 +1,6 @@
 /**
  * Specs für die TodoView
  */
-// TODO Auch hier bleibt der funktionale Code unabhängig von einer View und somit gut testbar.
-
 define('TodoViewSpec', [
     'jquery',
     'underscore',
