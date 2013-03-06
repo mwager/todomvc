@@ -1,0 +1,5 @@
+# "framework" and "src_files" are irrelevant in this case
+test_page: "test/index_testem.html"
+
+launch_in_dev:
+- Safari

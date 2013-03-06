@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TodoMVC Testsuite</title>
+    <link rel="stylesheet" href="/testem/mocha.css">
+    <style>
+        body { overflow-y : scroll; }
+        #fixtures { display : none; }
+    </style>
+
+    <!-- lade mocha and sinon global -->
+    <script src="/testem/mocha.js"></script>
+    <script src="/testem.js"></script>
+    <script src="/test/lib/sinon/sinon.js"></script>
+
+    <!------- Unsere Testsuite ------->
+    <script type="text/javascript">var __app_config__ = {ENV: 'test'};</script>
+    <script data-main="/test/bootstrap_tests.js"
+            src="/js/lib/require/require.js"></script>
+
+    <!--
+    ADD BLANKET.JS FOR CODE COVERAGE REPORT
+    =======================================
+    TODO Stabilere/Flexiblere Integration
+    TODO data-cover-only ?
+    -->
+    <style>#blanket-main { margin-top : 20px !important; }</style>
+    <script src="/test/lib/blanket.js"
+            data-cover-adapter="/test/lib/mocha-blanket.js"
+            data-cover-only="/js"></script>
+
+</head>
+<body>
+<div class="container">
+    <h3>TodoMVC • Backbone.js + RequireJS TestSuite</h3>
+
+    <div id="loading">loading tests...</div>
+    <div id="mocha"></div>
+
+    <!-- html fixtures -->
+    <div id="fixtures">
+        <section id="todoapp">
+            <header id="header">
+                <h1>todos</h1>
+                <input id="new-todo" placeholder="What needs to be done?"
+                       autofocus>
+            </header>
+            <section id="main">
+                <input id="toggle-all" type="checkbox">
+                <label for="toggle-all">Mark all as complete</label>
+                <ul id="todo-list"></ul>
+            </section>
+            <footer id="footer"></footer>
+        </section>
+    </div>
+</div>
+</body>
+</html>

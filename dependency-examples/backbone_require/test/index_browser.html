@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TodoMVC Testsuite</title>
+    <link rel="stylesheet" href="lib/mocha/mocha.css">
+    <style>
+        body { overflow-y : scroll; }
+        #fixtures { display : none; }
+    </style>
+
+    <!-- lade mocha and sinon global -->
+    <script src="lib/mocha/mocha.js"></script>
+    <script src="lib/sinon/sinon.js"></script>
+
+    <!------- Unsere Testsuite ------->
+
+    <!-- Option A: entweder src files: -->
+    <script type="text/javascript">var __app_config__ = {ENV: 'test', browser: true, optimized: false};</script>
+    <script data-main="bootstrap_tests.js"
+            src="../js/lib/require/require.js"></script>
+
+    <!-- Option B: oder das optimierte skript: TODO
+    <script type="text/javascript">var __app_config__ = {ENV: 'test', browser:true, optimized:true};</script>
+    <script data-main="../build/build" src=""></script>
+    -->
+</head>
+<body>
+<div class="container">
+    <h3>TodoMVC • Backbone.js + RequireJS TestSuite</h3>
+
+    <div id="loading">loading tests...</div>
+    <div id="mocha"></div>
+
+    <!-- html fixtures -->
+    <div id="fixtures">
+        <section id="todoapp">
+            <header id="header">
+                <h1>todos</h1>
+                <input id="new-todo" placeholder="What needs to be done?"
+                       autofocus>
+            </header>
+            <section id="main">
+                <input id="toggle-all" type="checkbox">
+                <label for="toggle-all">Mark all as complete</label>
+                <ul id="todo-list"></ul>
+            </section>
+            <footer id="footer"></footer>
+        </section>
+    </div>
+</div>
+</body>
+</html>
