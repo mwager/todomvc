@@ -5,17 +5,6 @@ Democode zum Artikel "Single Page Apps" im PHPMagazin, Ausgabe TODO 2013.
 Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` modifiziert.
 
 
-## TODOS
-
-* mehr Tests
-* CasperJS-Tests
-* [Selenium + PhantomJS?](http://net.tutsplus.com/tutorials/javascript-ajax/headless-functional-testing-with-selenium-and-phantomjs)
-* CodeReview
-* Tests anhand der TodoMVC AppSpec? https://github.com/addyosmani/todomvc/wiki/App-Specification
-* hier ein Inhaltsverzeichnis
-
-
-
 ## Installation
 
     $ cd path/to/local/htdocs # lokal muss ein webserver laufen
