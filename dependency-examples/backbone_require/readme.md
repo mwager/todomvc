@@ -4,18 +4,21 @@ Democode zum Artikel "Single Page Apps" im PHPMagazin, Ausgabe TODO 2013.
 
 Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` modifiziert.
 
+
 ## TODOS
 
 * mehr Tests
 * CasperJS-Tests
+* [Selenium + PhantomJS?](http://net.tutsplus.com/tutorials/javascript-ajax/headless-functional-testing-with-selenium-and-phantomjs)
 * CodeReview
 * Tests anhand der TodoMVC AppSpec? https://github.com/addyosmani/todomvc/wiki/App-Specification
 * hier ein Inhaltsverzeichnis
 
 
+
 ## Installation
 
-    $ cd path/to/local/htdocs # lokal ein apache installiert?
+    $ cd path/to/local/htdocs # lokal muss ein webserver laufen
     $ git clone https://github.com/mwager/todomvc.git
     $ cd todomvc/dependency-examples/backbone_require
     $ npm install grunt --save-dev && npm install
@@ -38,6 +41,7 @@ in der `index.html` eingebunden werden, und schon ist die App "production ready"
 
     $ cd path/to/dependency-examples/backbone_require
     $ grunt -v
+
 
 
 ## Relevante Dateien und Verzeichnisse
@@ -105,7 +109,13 @@ HTML Startdatei zum direkten Aufruf per Browser.
 HTML Startdatei wird von testem geladen. Siehe `testem.yml`.
 
 
+
 ## Quellen und weiterführende Informationen
 
 * [Testing Backbone applications with Jasmine and Sinon](http://tinnedfruit.com/2011/03/03/testing-backbone-apps-with-jasmine-sinon.html)
 * [Warum AMD/Require.js](https://gist.github.com/desandro/4686136)
+
+### Literatur
+
+* [Douglas Crockford - JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do)
+* [John Resig - Secrets of the JavaScript Ninja](http://jsninja.com)

@@ -5,17 +5,13 @@
  * @author Michael Wager <mail@mwager.de>
  */
 
-// provide log() helper for the tests
+// globaler logging helper für die Tests
 window.log = function () {
     if (!console) {
         return;
     }
 
-    if (arguments.length === 1) {
-        return console.log(arguments[0]);
-    }
-
-    console.log(arguments);
+    console.log.apply(console, arguments);
 };
 
 var conf = {

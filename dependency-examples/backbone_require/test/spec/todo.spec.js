@@ -59,20 +59,33 @@ define('TodoSpec', function (require) {
                     expect(spy.called).to.equal(true);
                 });
 
-                it('should validate attributes', function (done) {
-                    var spy = sinon.spy();
+                // Listing 5
+                it('should validate the title attribute', function (done) {
+                    var todo = new Todo();
 
-                    this.todo.on('error', spy);
-                    this.todo.on('error', function (model, error) {
-                        expect(spy.called).to.equal(true);
-
-                        // nur ein Beispiel, fixe Werte sollten möglichst gemieden werden!
-                        expect(error).to.equal('title cannot be empty');
+                    todo.on('error', function (/*model, error*/) {
+                        // log(error);
+                        // Sobald versucht wird das Model zu verändern
+                        // und die Validierung fehlschlägt, wird diese
+                        // Funktion ausgeführt. "done" signalisiert
+                        // somit das (erfolgreiche) Ende dieses Tests
                         done();
                     });
 
+                    todo.set({
+                        title: ''
+                    });
+                });
+
+                it('should validate the title again', function () {
+                    var spy = sinon.spy();
+
+                    this.todo.on('error', spy);
+
                     // löse den fehler in validate() aus
                     this.todo.set({title: ''}, {validate: true});
+
+                    expect(spy.called).to.equal(true);
                 });
             });
 
@@ -328,12 +341,15 @@ define('TodoSpec', function (require) {
                     this.server.restore();
                 });
 
-                it('should parse todos from the response', function (done) {
+                it('should fetch some todos', function (done) {
                     var self = this;
 
                     // AJAX Call: GET /todos
                     this.todos.fetch({
                         success: function (coll, json) {
+                            // die Collection ist nach erfolgreichem "fetch" gefüllt
+                            expect(coll.toJSON().length).to.equal(self.fixture.length);
+                            expect(self.todos.toJSON().length).to.equal(self.fixture.length);
                             expect(json.length).to.equal(self.fixture.length);
                             done();
                         }
