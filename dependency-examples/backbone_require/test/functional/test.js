@@ -1,3 +1,5 @@
+/* global $:true */
+
 /**
  * Democode für CasperJS
  *
