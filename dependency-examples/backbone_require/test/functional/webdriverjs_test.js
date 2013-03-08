@@ -1,7 +1,4 @@
 /**
- * TODO
- *  - andere Browser?
- *
  * Headless Functional Testing with Selenium and PhantomJS
  * -------------------------------------------------------
  * http://net.tutsplus.com/tutorials/javascript-ajax/headless-functional-testing-with-selenium-and-phantomjs
@@ -22,7 +19,9 @@ var client = require('webdriverjs').remote({
     desiredCapabilities: {
         // You may choose other browsers
         // http://code.google.com/p/selenium/wiki/DesiredCapabilities
-        browserName: 'phantomjs'
+        // {phantomjs|android|chrome|firefox|htmlunit|
+        // internet explorer|iPhone|iPad|opera}
+        browserName: 'firefox'
     }
     // webdriverjs has a lot of output which is generally useless
     // However, if anything goes wrong, remove this to see more details
