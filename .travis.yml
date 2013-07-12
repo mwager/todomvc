@@ -7,7 +7,7 @@ notifications:
   email: false
 
 before_install:
-  - "cd ./dependency-examples/backbone_require/ && npm install && cd .."
+  - "cd ./dependency-examples/backbone_require/ && npm install && cd ../.."
 
 before_script:
   - "export PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'"
