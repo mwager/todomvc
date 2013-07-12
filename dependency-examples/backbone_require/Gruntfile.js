@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             ]
         },
 
-        // CSS-MIN config
+        // XXX CSS-MIN config
         // https://github.com/jzaefferer/grunt-css
 
         // Require.js Optimizer Config

@@ -1,12 +1,14 @@
 {
-  "name": "my-todomvc-fork",
+  "name": "todomvc-fork",
   "private": true,
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.0",
+    "grunt-cli": "~0.1.9",
     "grunt-contrib-jshint": "~0.2.0",
     "grunt-requirejs": "~0.3.2",
     "webdriverjs": "~0.6.9",
-    "mocha": "~1.8.1"
+    "mocha": "~1.8.1",
+    "testem": "*"
   }
 }

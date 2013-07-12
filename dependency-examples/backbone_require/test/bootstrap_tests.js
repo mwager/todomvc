@@ -1,9 +1,12 @@
+/*global __app_config__:true, requirejs:true, mocha:true */
+
 /**
  * Diese Datei ist verantwortlich für die Konfiguration von requirejs,
  * sowie das Starten aller Tests
  *
  * @author Michael Wager <mail@mwager.de>
  */
+'use strict';
 
 // globaler logging helper für die Tests
 window.log = function () {
@@ -14,8 +17,14 @@ window.log = function () {
     console.log.apply(console, arguments);
 };
 
+window.getTime = function() {
+    return new Date().getTime();
+};
+
+window.start = window.getTime();
+
 var conf = {
-    urlArgs: 'v' + +(new Date()).getTime(),
+    urlArgs: 'v' + (new Date()).getTime(),
 
     baseUrl: '/js/', // absoluter Pfad für testem (läuft als node-app)
 
@@ -39,15 +48,13 @@ var conf = {
 };
 
 // die folgenden Pfade sind relativ zur baseUrl
-
-// möglich gegen optimierte Version zu testen (TODO demo?)
-//if (__app_config__.browser && __app_config__.optimized) {
-//    conf.baseUrl = '../dist/scripts/';
-//    conf.paths = {};
-//}
-//else
-// browser nicht-optimiert:
-if ((__app_config__.browser && !__app_config__.optimized)) {
+// 1. teste optimierte version des skripts?
+if (__app_config__.browser && __app_config__.optimized) {
+    conf.baseUrl = '../build/';
+    conf.paths = {};
+}
+// 2. oder direkt browser nicht-optimiert:
+else if ((__app_config__.browser && !__app_config__.optimized)) {
     conf.baseUrl = '../js/'; // relativ zum test-Verzeichnis
     // paths von main.js
     conf.paths = {
@@ -58,8 +65,8 @@ if ((__app_config__.browser && !__app_config__.optimized)) {
         text                : 'lib/require/text'
     };
 }
-// testem
-else if (!__app_config__.browser) {
+// 3. via testem
+else if (__app_config__.testem) {
     // paths von main.js
     conf.paths = {
         jquery              : '../test/lib/assets/jquery.min',
@@ -77,7 +84,10 @@ conf.paths.AppRouterSpec = '../test/spec/router.spec';
 conf.paths.AppViewSpec = '../test/spec/views/app.spec';
 conf.paths.TodoViewSpec = '../test/spec/views/todo.spec';
 
+
+
 requirejs.config(conf);
+
 require(['require', 'chai'], function (require, chai) {
 
     // chai.use(chaiSpies);
@@ -94,6 +104,7 @@ require(['require', 'chai'], function (require, chai) {
         return chai.expect(a);
     };
 
+    // hmmm... XXX better way
     window.should = function () {
         assertion_counter++;
         return chai.should();
@@ -111,8 +122,10 @@ require(['require', 'chai'], function (require, chai) {
     // Any global vars defined before mocha.run() are accepted
     mocha.setup({
         ui         : 'bdd',
-        ignoreLeaks: true
+        ignoreLeaks: true,
+        timeout: 10000
     });
+
 
     require([
         'jquery',
@@ -140,13 +153,18 @@ require(['require', 'chai'], function (require, chai) {
             // append assertion count to mocha results
             var resultList = $('#mocha-stats li:last');
             resultList.prepend('<li>assertions: <em>' + assertion_counter + '</em></li>');
+
+            var msg = 'OK, tests run in: ' + (window.getTime() - window.start) / 1000.0 + 's';
+
+            window.log(msg);
+            $('#mocha').after(msg);
         };
 
         // es wird zb todo.spec schneller ausgeführt als main.js )-:
-        setTimeout(function () {
-            mocha.run(onTestsDone);
+        // setTimeout(function () {
+        mocha.run(onTestsDone);
 
-            $('#loading').html('');
-        }, 1000)
+        $('#loading').html('');
+        // }, 1000)
     });
 });

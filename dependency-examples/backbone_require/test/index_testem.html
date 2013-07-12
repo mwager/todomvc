@@ -14,8 +14,8 @@
     <script src="/testem.js"></script>
     <script src="/test/lib/sinon/sinon.js"></script>
 
-    <!------- Unsere Testsuite ------->
-    <script type="text/javascript">var __app_config__ = {ENV: 'test'};</script>
+    <!--  Unsere Testsuite -->
+    <script type="text/javascript">var __app_config__ = {ENV: 'test', testem: true};</script>
     <script data-main="/test/bootstrap_tests.js"
             src="/js/lib/require/require.js"></script>
 
@@ -24,11 +24,12 @@
     =======================================
     TODO Stabilere/Flexiblere Integration
     TODO data-cover-only ?
-    -->
+
     <style>#blanket-main { margin-top : 20px !important; }</style>
     <script src="/test/lib/blanket.js"
             data-cover-adapter="/test/lib/mocha-blanket.js"
             data-cover-only="/js"></script>
+    -->
 
 </head>
 <body>

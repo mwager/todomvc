@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+   - "0.8"
+   - "0.10"
+
+notifications:
+  email: false
+
+before_install:
+  - "cd ./dependency-examples/backbone_require/ && npm install && cd .."
+
+before_script:
+  - "export PHANTOMJS_EXECUTABLE='phantomjs --local-to-remote-url-access=yes --ignore-ssl-errors=yes'"
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
+
+script:
+  - cd ./dependency-examples/backbone_require && ./node_modules/.bin/testem ci

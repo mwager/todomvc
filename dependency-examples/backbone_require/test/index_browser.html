@@ -13,17 +13,16 @@
     <script src="lib/mocha/mocha.js"></script>
     <script src="lib/sinon/sinon.js"></script>
 
-    <!------- Unsere Testsuite ------->
+    <!-- Unsere Testsuite -->
 
     <!-- Option A: entweder src files: -->
     <script type="text/javascript">var __app_config__ = {ENV: 'test', browser: true, optimized: false};</script>
-    <script data-main="bootstrap_tests.js"
-            src="../js/lib/require/require.js"></script>
+    <script data-main="bootstrap_tests.js" src="../js/lib/require/require.js"></script>
 
-    <!-- Option B: oder das optimierte skript: TODO
+    <!-- Option B: teste direkt gegen das optimierte skript:
     <script type="text/javascript">var __app_config__ = {ENV: 'test', browser:true, optimized:true};</script>
-    <script data-main="../build/build" src=""></script>
-    -->
+    <script data-main="../build/build" src="../js/lib/require/require.js"></script>
+    <script type="text/javascript" src="bootstrap_tests.js"></script> -->
 </head>
 <body>
 <div class="container">

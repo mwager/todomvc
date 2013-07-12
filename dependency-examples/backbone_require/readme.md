@@ -1,6 +1,8 @@
 # TodoMVC Fork
 
-Democode zum Artikel "Single Page Apps" im PHPMagazin, Ausgabe TODO 2013.
+Democode zum Artikel "Single Page Apps" im PHPMagazin, Ausgabe 05/2013.
+
+[![Build Status](https://travis-ci.org/mwager/todomvc.png?branch=master)](https://travis-ci.org/mwager/todomvc)
 
 Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` modifiziert.
 
@@ -10,7 +12,8 @@ Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` mod
     $ cd path/to/local/htdocs # lokal muss ein webserver laufen
     $ git clone https://github.com/mwager/todomvc.git
     $ cd todomvc/dependency-examples/backbone_require
-    $ npm install grunt --save-dev && npm install
+    $ npm install
+
 
 
 ## Tasks via [grunt](http://gruntjs.com)
@@ -21,7 +24,7 @@ alten `Makefile`.
 ### JSHint via Grunt
 
     $ cd path/to/dependency-examples/backbone_require
-    $ grunt jshint -v
+    $ ./node_modules/.bin/grunt jshint -v
 
 ### Build via Require.js Optimizer
 
@@ -29,7 +32,7 @@ Der Buildprozess erstellt die Datei `build/build.js`. Diese muss dann nur noch
 in der `index.html` eingebunden werden, und schon ist die App "production ready" (-:
 
     $ cd path/to/dependency-examples/backbone_require
-    $ grunt -v
+    $ ./node_modules/.bin/grunt -v
 
 
 
@@ -80,7 +83,8 @@ Es gibt 2 Möglichkeiten zum Ausführen der Tests: Direkt (zB apache) oder via
 2. Via `testem`:
 
         $ cd path/to/dependency-examples/backbone_require
-        $ testem # oder testem ci
+        $ ./node_modules/.bin/testem     # dev mode
+        $ ./node_modules/.bin/testem ci  # ci mode
 
 
 ### `test/bootstrap_tests.js`

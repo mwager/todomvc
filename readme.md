@@ -121,5 +121,5 @@ Check out our [contribution docs](todomvc/blob/gh-pages/contributing.md) for mor
 
 ## License
 
-MIT License  
+MIT License
 Copyright (c) Addy Osmani & Sindre Sorhus
