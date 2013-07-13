@@ -2,7 +2,7 @@
 test_page:
     "test/index_testem.html"
 
-# Es existieren 2 Wege der AUsführung: "dev" und "ci".
+# Es existieren 2 Wege der Ausführung: "dev" und "ci".
 # "dev" kann während der Entwicklung verwendet werden,
 # "ci" steht für "continuous integration"-mode und führt in allen
 # auf dem Hostsystem installierte Browser die Testsuite aus.

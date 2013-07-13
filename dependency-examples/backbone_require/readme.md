@@ -4,15 +4,19 @@ Democode zum Artikel "Single Page Apps" im PHPMagazin, Ausgabe 05/2013.
 
 [![Build Status](https://travis-ci.org/mwager/todomvc.png?branch=master)](https://travis-ci.org/mwager/todomvc)
 
-Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` modifiziert.
+Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` modifiziert. Dieser Fork erweitert lediglich das Backbone-Require Beispiel um einige Tests und versucht anhand einfacher Beispiele einige Best-Practises moderner JavaScript-Entwicklung vorzustellen.
 
 
-## Installation
+
+
+## Lokale Installation
 
     $ cd path/to/local/htdocs # lokal muss ein webserver laufen
     $ git clone https://github.com/mwager/todomvc.git
     $ cd todomvc/dependency-examples/backbone_require
+    # NOTE: node.js muss installiert sein
     $ npm install
+
 
 
 
@@ -36,48 +40,22 @@ in der `index.html` eingebunden werden, und schon ist die App "production ready"
 
 
 
+
 ## Relevante Dateien und Verzeichnisse
 
-### `.jshintrc`
-
-JSHint Konfiguration. Wird in der Gruntfile.js verwendet, jedoch auch wenn JSHint
-direkt aufgerufen wird.
-
-### `js/`
-
-Das Verzeichnis der Original-Quellen der TodoMVC Implementierung mit Backbone.js
-und Require.js
+* `.jshintrc`           - JSHint Konfiguration. Wird in der Gruntfile.js verwendet, jedoch auch wenn JSHint direkt aufgerufen wird.
+* `Gruntfile.js`        - Grunt Konfiguration
+* `js/`                 - Das Verzeichnis der Original-Quellen der TodoMVC Implementierung mit Backbone.js und Require.js
+* `test/`               - Alle Tests. UNIT-Tests via [Mocha](http://visionmedia.github.com/mocha/) und [testem](https://github.com/airportyh/testem), funktionale Tests via [CasperJS](http://casperjs.org/).
+* `test/functional`     - `CasperJS` Tests
+* `test/spec`           - Mocha UNIT Tests
+* `testem.yml`          - Konfigurationsdatei für `testem`.
 
 
-### `test/`
 
-Alle Tests. UNIT-Tests via [Mocha](http://visionmedia.github.com/mocha/) und
-[testem](https://github.com/airportyh/testem), funktionale Tests via
-[CasperJS](http://casperjs.org/).
+## Tests ##
 
-#### `test/functional`
-
-`CasperJS` Tests
-
-Zuerst [CasperJS installieren](http://casperjs.org/installation.html)
-Die Tests befinden sich in `test/functional/`
-
-    $ cd path/to/dependency-examples/backbone_require
-    $ casperjs test test/functional
-
-#### `test/spec`
-
-Mocha UNIT Tests
-
-
-### `testem.yml`
-
-Konfigurationsdatei für `testem`.
-
-### Ausführen der Tests
-
-Es gibt 2 Möglichkeiten zum Ausführen der Tests: Direkt (zB apache) oder via
-`testem`
+Es gibt 2 Möglichkeiten zum Ausführen der Tests: Direkt via webserver (zB apache) oder via `testem`:
 
 1. Browser direkt: `/test/index_browser.html` im Browser öffnen
 2. Via `testem`:
@@ -86,29 +64,34 @@ Es gibt 2 Möglichkeiten zum Ausführen der Tests: Direkt (zB apache) oder via
         $ ./node_modules/.bin/testem     # dev mode
         $ ./node_modules/.bin/testem ci  # ci mode
 
+### CasperJS ###
 
-### `test/bootstrap_tests.js`
+[CasperJS installieren](http://casperjs.org/installation.html)
+Die Tests befinden sich in `test/functional/`
 
-Konfiguration von Require.js für die Tests, Laden der Tests.
-
-
-### `test/index_browser.html`
-
-HTML Startdatei zum direkten Aufruf per Browser.
+    $ cd path/to/dependency-examples/backbone_require
+    $ casperjs test test/functional
 
 
-### `test/index_testem.html`
+### Selenium + PhantomJS ###
 
-HTML Startdatei wird von testem geladen. Siehe `testem.yml`.
+Es existiert auch ein Beispiel mit Selenium und PhantomJS:
+
+    1. In anderem Terminal den Selenium Server starten, zB:
+    $ java -jar selenium-server-standalone-2.31.0.jar
+
+    2. Ausführen der Tests:
+    $ cd path/to/dependency-examples/backbone_require
+    $ node test/functional/webdriverjs_test.js
 
 
 
-## Quellen und weiterführende Informationen
+## Quellen und weiterführende Informationen ##
 
 * [Testing Backbone applications with Jasmine and Sinon](http://tinnedfruit.com/2011/03/03/testing-backbone-apps-with-jasmine-sinon.html)
 * [Warum AMD/Require.js](https://gist.github.com/desandro/4686136)
 
-### Literatur
+### Literatur ###
 
 * [Douglas Crockford - JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do)
 * [John Resig - Secrets of the JavaScript Ninja](http://jsninja.com)
