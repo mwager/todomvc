@@ -4,7 +4,7 @@ Democode zum Artikel `Moderne JavaScript-Applikationen - ein Überblick` im PHPM
 
 [![Build Status](https://travis-ci.org/mwager/todomvc.png?branch=master)](https://travis-ci.org/mwager/todomvc)
 
-Dieses Repo ist ein Fork des [TodoMVC-Projekts](http://todomvc.com/) und dient als Democode zum Artikel [http://phpmagazin.de/artikel/Moderne-JavaScript-Applikationen-ein-Ueberblick](Moderne JavaScript-Applikationen - ein Überblick) aus dem PHPMagazin, Ausgabe 05/2913.
+Dieses Repo ist ein Fork des [TodoMVC-Projekts](http://todomvc.com/) und dient als Democode zum Artikel [Moderne JavaScript-Applikationen - ein Überblick](http://phpmagazin.de/artikel/Moderne-JavaScript-Applikationen-ein-Ueberblick) aus dem PHPMagazin, Ausgabe 05/2913.
 
 Es wurden nur Dateien im Verzeichnis `/dependency-examples/backbone_require/` modifiziert. Dieser Fork erweitert lediglich die Backbone-RequireJS Demo um einige Tests und versucht anhand einfacher Beispiele einige Best-Practises moderner JavaScript-Entwicklung vorzustellen.
 
