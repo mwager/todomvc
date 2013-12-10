@@ -1,11 +1,12 @@
 # TodoMVC Fork
 
-Democode zum Artikel "Single Page Apps" im PHPMagazin, Ausgabe 05/2013.
+Democode zum Artikel `Moderne JavaScript-Applikationen - ein Überblick` im PHPMagazin, Ausgabe 05/2013.
 
 [![Build Status](https://travis-ci.org/mwager/todomvc.png?branch=master)](https://travis-ci.org/mwager/todomvc)
 
-Es wurden nur Dateien im Verzeichnis `dependency-examples/backbone_require/` modifiziert. Dieser Fork erweitert lediglich das Backbone-Require Beispiel um einige Tests und versucht anhand einfacher Beispiele einige Best-Practises moderner JavaScript-Entwicklung vorzustellen.
+Dieses Repo ist ein Fork des [TodoMVC-Projekts](http://todomvc.com/) und dient als Democode zum Artikel [http://phpmagazin.de/artikel/Moderne-JavaScript-Applikationen-ein-Ueberblick](Moderne JavaScript-Applikationen - ein Überblick) aus dem PHPMagazin, Ausgabe 05/2913.
 
+Es wurden nur Dateien im Verzeichnis `/dependency-examples/backbone_require/` modifiziert. Dieser Fork erweitert lediglich die Backbone-RequireJS Demo um einige Tests und versucht anhand einfacher Beispiele einige Best-Practises moderner JavaScript-Entwicklung vorzustellen.
 
 
 
@@ -55,7 +56,9 @@ in der `index.html` eingebunden werden, und schon ist die App "production ready"
 
 ## Tests ##
 
-Es gibt 2 Möglichkeiten zum Ausführen der Tests: Direkt via webserver (zB apache) oder via `testem`:
+### UNIT Tests ###
+
+Es gibt 2 Möglichkeiten zum Ausführen der UNIT-Tests: Direkt via webserver (zB apache) oder via `testem`:
 
 1. Browser direkt: `/test/index_browser.html` im Browser öffnen
 2. Via `testem`:
@@ -64,16 +67,16 @@ Es gibt 2 Möglichkeiten zum Ausführen der Tests: Direkt via webserver (zB apac
         $ ./node_modules/.bin/testem     # dev mode
         $ ./node_modules/.bin/testem ci  # ci mode
 
-### CasperJS ###
+### Funktionale Tests (CasperJS) ###
 
-[CasperJS installieren](http://casperjs.org/installation.html)
+[CasperJS installieren](http://docs.casperjs.org/en/latest/installation.html)
 Die Tests befinden sich in `test/functional/`
 
     $ cd path/to/dependency-examples/backbone_require
     $ casperjs test test/functional
 
 
-### Selenium + PhantomJS ###
+#### Selenium + PhantomJS ####
 
 Es existiert auch ein Beispiel mit Selenium und PhantomJS:
 
